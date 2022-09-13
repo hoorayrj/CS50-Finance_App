@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <h2>History of Transactions</h2>
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Stocks</th>
+                <th>Shares Bought/Sold</th>
+                <th>Price per Share</th>
+                <th>Total Price</th>
+                <th>Buy/Sell</th>
+                <th>Date</th>
+            </tr>
+             <tbody>
+                {% for info in history %}
+
+                <tr>
+                    <td>{{info.stock}}</td>
+                    <td>{{info.no_shares}}</td>
+                    <td>${{info.shares_cost}}</td>
+                    <td>${{info.purchase_price}}</td>
+                    <td>{{info.buy_sell}}</td>
+                    <td>{{info.date}}</td>
+                </tr>
+                {% endfor %}
+
+             </tbody>
+        </table>
+
+
+
+    </div>
+{% endblock %}

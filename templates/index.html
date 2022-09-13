@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>Hi, {{ user }}</h1>
+
+    <h2>Available Cash: {{cash}}</h2>
+    <h2>Summary of Stocks</h2>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Stocks</th>
+                <th>Total Shares</th>
+                <th>Current Market Price</th>
+                <th>Total Value</th>
+            </tr>
+             <tbody>
+                {% for stocks in summary %}
+
+                <tr>
+                    <td>{{stocks.stock}}</td>
+                    <td>{{stocks.shares}}</td>
+                    <td>${{stocks.market_price}}</td>
+                    <td>${{stocks.price}}</td>
+                </tr>
+                {% endfor %}
+
+             </tbody>
+
+        </table>
+        <h3> Total assets= {{ total_assets}} </h3>
+
+
+
+    </div>
+{% endblock %}
